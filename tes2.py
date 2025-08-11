@@ -52,7 +52,7 @@ elif menu == "Pelepasan":
     st.header("Input Pelepasan")
     tanggal = st.date_input("Tanggal", datetime.now().date())
     kode_filter = st.text_input("Kode filter")
-    jam_pelepasan = st.time_input("Jam pelepasan", datetime.now().time())
+    jam_pelepasan = st.time_input("Jam pelepasan",value="08:00")
     flow_akhir = st.number_input("Flow Akhir")
     elapsed_akhir = st.number_input("Elapsed Time Akhir")
     nama_petugas = st.text_input("Nama Petugas Pelepasan")
