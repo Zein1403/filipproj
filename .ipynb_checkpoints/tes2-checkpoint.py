@@ -31,7 +31,7 @@ if menu == "Pemasangan":
     st.header("Input Pemasangan")
     tanggal = st.date_input("Tanggal", datetime.now().date())
     kode_filter = st.text_input("Kode filter")
-    jam_pemasangan = st.time_input("Jam pemasangan", datetime.now().time())
+    jam_pemasangan = st.text_input("Jam pemasangan (HH:MM)", value="08:00")
     flow_awal = st.number_input("Flow Awal")
     elapsed_awal = st.number_input("Elapsed Time Awal")
     nama_petugas = st.text_input("Nama Petugas Pemasangan")
