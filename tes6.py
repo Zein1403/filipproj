@@ -9,6 +9,7 @@ from gspread_formatting import *
 import streamlit as st
 from google.oauth2.service_account import Credentials
 
+st.write(st.secrets.keys())
 # Ambil dari secrets
 service_account_info = st.secrets["google_service_key"]
 
