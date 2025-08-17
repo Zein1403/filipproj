@@ -11,8 +11,12 @@ import json
 from google.oauth2.service_account import Credentials
 import gspread
 
-# Ambil service account dari secrets
-service_account_info = json.loads(st.secrets["google_service_key"])
+import streamlit as st
+from google.oauth2.service_account import Credentials
+import gspread
+
+# Ambil langsung dict dari secrets
+service_account_info = st.secrets["google_service_key"]
 
 # Buat credentials
 scopes = ["https://www.googleapis.com/auth/spreadsheets", 
@@ -22,7 +26,8 @@ creds = Credentials.from_service_account_info(service_account_info, scopes=scope
 # Connect ke Google Sheets
 client = gspread.authorize(creds)
 
-st.success("✅ Service account loaded")
+st.success("✅ Service account loaded & Google Sheets connected")
+
 # Ambil dari secrets
 service_account_info = st.secrets["google_service_key"]
 
