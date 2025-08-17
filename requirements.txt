@@ -1,6 +1,7 @@
 streamlit
 gspread
-google-auth
 gspread-formatting
-oauth2client
-json
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+oauthlib
