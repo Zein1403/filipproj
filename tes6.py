@@ -26,7 +26,7 @@ creds = Credentials.from_service_account_info(service_account_info, scopes=scope
 # Connect ke Google Sheets
 client = gspread.authorize(creds)
 
-st.success("✅ Service account loaded & Google Sheets connected")
+#st.success("✅ Service account loaded & Google Sheets connected")
 
 # Ambil dari secrets
 service_account_info = st.secrets["google_service_key"]
@@ -112,7 +112,7 @@ if menu == "Pemasangan":
         pemasangan_data = [flow_awal, elapsed_awal]
         sheet.update(f"{COLS['pemasangan'][0]}{row_index}:{COLS['pemasangan'][-1]}{row_index}",
                      [pemasangan_data])
-        st.success(f"✅ Data pemasangan untuk {kode_filter} tersimpan di baris {row_index}")
+        #st.success(f"✅ Data pemasangan untuk {kode_filter} tersimpan di baris {row_index}")
 
 # --- Pelepasan ---
 elif menu == "Pelepasan":
@@ -131,7 +131,7 @@ elif menu == "Pelepasan":
         pelepasan_data = [flow_akhir, elapsed_akhir, nama_petugas]
         sheet.update(f"{COLS['pelepasan'][0]}{row_index}:{COLS['pelepasan'][-1]}{row_index}",
                      [pelepasan_data])
-        st.success(f"✅ Data pelepasan untuk {kode_filter} tersimpan di baris {row_index}")
+       # st.success(f"✅ Data pelepasan untuk {kode_filter} tersimpan di baris {row_index}")
 
 # --- Lihat Data ---
 elif menu == "Lihat Data":
