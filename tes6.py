@@ -13,8 +13,7 @@ SCOPES = [
 ]
 
 # Baca secret dari environment
-service_account_info = json.loads(os.environ["GOOGLE_SERVICE_KEY"])
-print(service_account_info)
+service_account_info = st.secrets["google_service_key"]
 # Buat credential object
 creds = Credentials.from_service_account_info(service_account_info, scopes=SCOPES)
 
