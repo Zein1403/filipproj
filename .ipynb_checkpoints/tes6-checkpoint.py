@@ -6,11 +6,21 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 from gspread_formatting import *
 
-scope = ["https://spreadsheets.google.com/feeds",
-         "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("test-data-filipin-3cd188664241.json", scope)
+SCOPES = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive"
+]
+
+# Baca secret dari environment
+service_account_info = json.loads(os.environ["GOOGLE_SERVICE_KEY"])
+
+# Buat credential object
+creds = Credentials.from_service_account_info(service_account_info, scopes=SCOPES)
+
+# Authorize gspread
 client = gspread.authorize(creds)
-SPREADSHEET_ID = "1D9R_x2rt8hyBaEOj8ytbj9YvwxFz7X60vUvn-8vQbvk"
+
+
 sheet = client.open_by_key(SPREADSHEET_ID).worksheet("Sampling filipina")
 
 cell_range = 'E7:J100'  # misalnya data ada di tabel baris 7–100
