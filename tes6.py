@@ -2,7 +2,7 @@ import streamlit as st
 import csv
 import os
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2.service_account import Credentials
 from datetime import datetime
 from gspread_formatting import *
 
