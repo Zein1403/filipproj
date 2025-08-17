@@ -14,7 +14,7 @@ import gspread
 import streamlit as st
 from google.oauth2.service_account import Credentials
 import gspread
-
+SPREADSHEET_ID = "1D9R_x2rt8hyBaEOj8ytbj9YvwxFz7X60vUvn-8vQbvk"
 # Ambil langsung dict dari secrets
 service_account_info = st.secrets["google_service_key"]
 
