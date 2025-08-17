@@ -7,12 +7,22 @@ from google.oauth2.service_account import Credentials
 from datetime import datetime
 from gspread_formatting import *
 import streamlit as st
+import json
 from google.oauth2.service_account import Credentials
+import gspread
 
-service_account_info = st.secrets["google_service_key"]
-creds = Credentials.from_service_account_info(service_account_info)
-st.write("✅ Service account loaded")
-st.write(st.secrets.keys())
+# Ambil service account dari secrets
+service_account_info = json.loads(st.secrets["google_service_key"])
+
+# Buat credentials
+scopes = ["https://www.googleapis.com/auth/spreadsheets", 
+          "https://www.googleapis.com/auth/drive"]
+creds = Credentials.from_service_account_info(service_account_info, scopes=scopes)
+
+# Connect ke Google Sheets
+client = gspread.authorize(creds)
+
+st.success("✅ Service account loaded")
 # Ambil dari secrets
 service_account_info = st.secrets["google_service_key"]
 
